@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Wayfinder">
+<link rel="manifest" href="./manifest.json">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<title>STI Wayfinder</title>
+</head>
+<body>
+<div id="app">
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 1: SPLASH
+═══════════════════════════════ -->
+<div class="screen active" id="s-splash">
+  <div class="splash-body">
+    <div class="logomark">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="white" stroke="none"/></svg>
+    </div>
+    <div class="splash-campus">STI College Puerto Princesa</div>
+    <div class="splash-title">Find your<br>way around.</div>
+    <div class="splash-sub">Room-by-room campus navigation for students, parents & visitors.</div>
+  </div>
+  <div class="splash-footer">
+    <button class="btn-white" onclick="go('s-student-login')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Sign in as Student
+    </button>
+    <div class="divrow"><span>or</span></div>
+    <button class="btn-ghost" onclick="go('s-guest-login')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      Continue as Guest
+    </button>
+    <p class="splash-note">Student access requires @sti.edu.ph</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 2: STUDENT LOGIN
+═══════════════════════════════ -->
+<div class="screen" id="s-student-login">
+  <div class="login-body">
+    <div style="height:10px"></div>
+    <div class="back" onclick="go('s-splash')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
+      Back
+    </div>
+    <div class="eye">Student Access</div>
+    <div class="login-title">Sign in with<br>your school<br>account.</div>
+    <div class="login-sub">Use your @sti.edu.ph Google Workspace credentials to access all features.</div>
+    <button class="google-btn">
+      <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      <div class="gbt-text"><span>Continue with Google</span><small>STI Google Workspace</small></div>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <div class="divrow d"><span>or enter manually</span></div>
+    <label class="inp-lbl">School Email</label>
+    <input class="inp" style="margin-bottom:0;" type="email" value="loiu.2024@sti.edu.ph">
+    <div class="inp-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> Must end in @sti.edu.ph</div>
+    <label class="inp-lbl">Password</label>
+    <input class="inp" type="password" placeholder="School account password" style="margin-bottom:6px;">
+    <div class="forgot">Forgot password?</div>
+    <div style="height:16px;"></div>
+  </div>
+  <div class="login-footer">
+    <button class="btn-blk" onclick="go('s-dashboard')">Sign In</button>
+    <p class="terms">By signing in you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 3: GUEST LOGIN
+═══════════════════════════════ -->
+<div class="screen" id="s-guest-login">
+  <div class="login-body">
+    <div style="height:10px"></div>
+    <div class="back" onclick="go('s-splash')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
+      Back
+    </div>
+    <div class="eye">Guest Access</div>
+    <div class="login-title">Who are<br>you visiting?</div>
+    <div class="login-sub">No account needed. Select your visitor type to get started.</div>
+    <div class="gtype sel" onclick="selectGuest(this)">
+      <div class="gtype-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div class="gtype-info"><h4>Parent / Guardian</h4><p>Visiting to check in on a student or attend an event</p></div>
+      <div class="radio"></div>
+    </div>
+    <div class="gtype" onclick="selectGuest(this)">
+      <div class="gtype-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+      <div class="gtype-info"><h4>Visitor / Partner</h4><p>Attending a meeting, event, or campus tour</p></div>
+      <div class="radio"></div>
+    </div>
+    <div class="gtype" onclick="selectGuest(this)">
+      <div class="gtype-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+      <div class="gtype-info"><h4>Prospective Student</h4><p>Exploring STI before enrolling</p></div>
+      <div class="radio"></div>
+    </div>
+    <div class="access-note">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>Guests get <strong>map & room navigation</strong>. Schedule access is for students only.</p>
+    </div>
+    <div style="height:12px;"></div>
+  </div>
+  <div class="login-footer">
+    <button class="btn-blk" onclick="go('s-guest-home')" style="gap:7px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="white" stroke="none"/></svg>
+      Start Navigating
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 4: STUDENT DASHBOARD
+═══════════════════════════════ -->
+<div class="screen tab-enter" id="s-dashboard">
+  <div class="scroll">
+    <div style="padding:2px 20px 14px;display:flex;justify-content:space-between;align-items:center;">
+      <div><p style="font-size:12px;color:var(--g400);margin-bottom:3px;">Good morning 👋</p><h2 style="font-size:22px;font-weight:600;color:var(--black);letter-spacing:-0.03em;">Loiu</h2></div>
+      <div style="width:40px;height:40px;background:var(--black);border-radius:13px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--white);">LO</div>
+    </div>
+    <div class="next-card" onclick="startNav('RM204')">
+      <div class="nc-eye">Next Class · 2:30 PM · Mon & Tue</div>
+      <div class="nc-subj">The Entrepreneurial Mind</div>
+      <div class="nc-meta">Diana Estanero · 1h 30min</div>
+      <div class="nc-foot">
+        <div class="nc-room"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>RM204</div>
+        <div class="nc-go"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none"/></svg>Navigate</div>
+      </div>
+    </div>
+    <div class="sh"><h3>Quick Access</h3></div>
+    <div class="qgrid">
+      <div class="qcard" onclick="tabTo('s-dashboard','s-search')"><div class="qcard-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><div><h4>Find a Room</h4><p>Search by name or number</p></div></div>
+      <div class="qcard" onclick="tabTo('s-dashboard','s-schedule')"><div class="qcard-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div><h4>My Schedule</h4><p>Weekly classes</p></div></div>
+      <div class="qcard" onclick="go('s-map')"><div class="qcard-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><h4>Campus Map</h4><p>All buildings & floors</p></div></div>
+      <div class="qcard" onclick="openRoom('RM302')"><div class="qcard-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div><h4>Recent Rooms</h4><p>Last visited places</p></div></div>
+    </div>
+    <div class="dash-sch-hd">
+      <div>
+        <div class="dash-sch-title" id="dash-day-title">Classes for Today</div>
+        <div class="dash-sch-meta"><span id="dash-day-date"></span> · <span id="dash-day-count"></span></div>
+      </div>
+      <select class="dash-day-sel" id="dash-day-sel" onchange="setDashDay(this.value)">
+        <option value="1">Monday</option>
+        <option value="2">Tuesday</option>
+        <option value="3">Wednesday</option>
+        <option value="4">Thursday</option>
+        <option value="5">Friday</option>
+        <option value="6">Saturday</option>
+        <option value="all">Entire Week</option>
+      </select>
+    </div>
+    <div class="slist">
+      <div class="si" onclick="openRoom('RM204')"><div class="si-time">MT<br>2:30</div><div class="si-dot on"></div><div class="si-info"><h4>The Entrepreneurial Mind</h4><p>RM204 · Diana Estanero</p></div><div class="si-go" onclick="startNav('RM204');event.stopPropagation()"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="si"><div class="si-time">MT<br>4:00</div><div class="si-dot"></div><div class="si-info"><h4>Technopreneurship</h4><p>TBA · Laurice Jade Caballero</p></div></div>
+      <div class="si"><div class="si-time">TH<br>7:00</div><div class="si-dot"></div><div class="si-info"><h4>Information Management</h4><p>TBA · Lee Roy Fabregas</p></div></div>
+      <div class="si"><div class="si-time">TH<br>9:00</div><div class="si-dot"></div><div class="si-info"><h4>Quantitative Methods</h4><p>TBA · Mea Ann Diaz</p></div></div>
+      <div class="si"><div class="si-time">TH<br>1:00</div><div class="si-dot"></div><div class="si-info"><h4>Systems Integration & Architecture</h4><p>TBA · Lloyd Lomoljo</p></div></div>
+      <div class="si" onclick="openRoom('LAB1')"><div class="si-time">TH<br>4:00</div><div class="si-dot"></div><div class="si-info"><h4>Network Technology 1</h4><p>Lab 1 · Lloyd Lomoljo</p></div><div class="si-go" onclick="startNav('LAB1');event.stopPropagation()"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="si" onclick="openRoom('LAB1')"><div class="si-time">F<br>7:00</div><div class="si-dot"></div><div class="si-info"><h4>Information Management</h4><p>Lab 1 · Lee Roy Fabregas</p></div><div class="si-go" onclick="startNav('LAB1');event.stopPropagation()"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="si" onclick="openRoom('LAB1')"><div class="si-time">F<br>1:00</div><div class="si-dot"></div><div class="si-info"><h4>Systems Integration & Architecture</h4><p>Lab 1 · Lloyd Lomoljo</p></div><div class="si-go" onclick="startNav('LAB1');event.stopPropagation()"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="si" onclick="openRoom('LAB1')"><div class="si-time">F<br>4:00</div><div class="si-dot"></div><div class="si-info"><h4>Network Technology 1</h4><p>Lab 1 · Lloyd Lomoljo</p></div><div class="si-go" onclick="startNav('LAB1');event.stopPropagation()"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+      <div class="si"><div class="si-time">S<br>7:00</div><div class="si-dot"></div><div class="si-info"><h4>P.E./PATHFIT 4: Team Sports</h4><p>TBA · Karen Torrefiel</p></div></div>
+      <div class="si"><div class="si-time">S<br>10:00</div><div class="si-dot"></div><div class="si-info"><h4>Integrative Programming</h4><p>TBA · Nathalie Shane Abia</p></div></div>
+    </div>
+    <div style="height:16px;"></div>
+  </div>
+  <div class="bnav">
+    <div class="ni on" onclick="tabTo('s-dashboard','s-dashboard')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><span>Home</span></div>
+    <div class="ni" onclick="tabTo('s-dashboard','s-search')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>Search</span></div>
+    <div class="ni" onclick="tabTo('s-dashboard','s-schedule')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Schedule</span></div>
+    <div class="ni" onclick="tabTo('s-dashboard','s-profile')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 5: SCHEDULE
+═══════════════════════════════ -->
+<div class="screen tab-enter" id="s-schedule">
+  <div style="padding:6px 20px 0;flex-shrink:0;">
+    <div style="font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--g400);margin-bottom:4px;">2025—2026 · 2nd Term</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+      <div style="font-size:25px;font-weight:600;color:var(--black);letter-spacing:-0.04em;">My Schedule</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;font-weight:500;color:var(--g600);background:var(--g100);border-radius:8px;padding:4px 10px;letter-spacing:0.04em;flex-shrink:0;">BSIT 3-1</div>
+    </div>
+  </div>
+  <div class="day-row">
+    <div class="dc" onclick="showDay('mon',this)"><span class="dn">Mon</span><span class="dd">M</span></div>
+    <div class="dc on" onclick="showDay('mt',this)"><span class="dn">M—T</span><span class="dd">MT</span><div class="tod"></div></div>
+    <div class="dc" onclick="showDay('th',this)"><span class="dn">T—H</span><span class="dd">TH</span></div>
+    <div class="dc" onclick="showDay('fri',this)"><span class="dn">Fri</span><span class="dd">F</span></div>
+    <div class="dc" onclick="showDay('sat',this)"><span class="dn">Sat</span><span class="dd">S</span></div>
+  </div>
+
+  <!-- MON: no classes -->
+  <div class="scroll sched-panel" id="day-mon" style="display:none;">
+    <div class="tl">
+      <div class="tli"><div class="tl-t">—</div><div class="tl-line"></div><div class="tlc empty"><span>No classes on Monday</span></div></div>
+    </div>
+  </div>
+
+  <!-- MT: Mon & Tue classes -->
+  <div class="scroll sched-panel" id="day-mt">
+    <div class="tl">
+      <div class="tli"><div class="tl-t cur">2:30</div><div class="tl-line"><div class="tl-dot now"></div></div><div class="tlc act" onclick="openRoom('RM204')"><h4>The Entrepreneurial Mind</h4><p>Diana Estanero · 1h 30min</p><div class="tlc-foot"><div class="rt l">RM204</div><div class="nb w" onclick="startNav('RM204');event.stopPropagation()"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none"/></svg>Navigate</div></div></div></div>
+      <div class="tli"><div class="tl-t">4:00</div><div class="tl-line"><div class="tl-dot"></div></div><div class="tlc"><h4>Technopreneurship</h4><p>Laurice Jade Caballero · 1h 30min</p><div class="tlc-foot"><div class="rt">TBA</div></div></div></div>
+    </div>
+  </div>
+
+  <!-- TH: Thu & some Fri -->
+  <div class="scroll sched-panel" id="day-th" style="display:none;">
+    <div class="tl">
+      <div class="tli"><div class="tl-t">7:00</div><div class="tl-line"><div class="tl-dot"></div></div><div class="tlc"><h4>Information Management</h4><p>Lee Roy Fabregas · 2h</p><div class="tlc-foot"><div class="rt">TBA</div></div></div></div>
+      <div class="tli"><div class="tl-t">9:00</div><div class="tl-line"><div class="tl-dot"></div></div><div class="tlc"><h4>Quantitative Methods</h4><p>Mea Ann Diaz · 3h</p><div class="tlc-foot"><div class="rt">TBA</div></div></div></div>
+      <div class="tli"><div class="tl-t">1:00</div><div class="tl-line"><div class="tl-dot"></div></div><div class="tlc"><h4>Systems Integration & Architecture</h4><p>Lloyd Lomoljo · 2h</p><div class="tlc-foot"><div class="rt">TBA</div></div></div></div>
+      <div class="tli"><div class="tl-t">4:00</div><div class="tl-line"><div class="tl-dot"></div></div><div class="tlc" onclick="openRoom('LAB1')"><h4>Network Technology 1</h4><p>Lloyd Lomoljo · 2h</p><div class="tlc-foot"><div class="rt">Lab 1</div><div class="nb d" onclick="startNav('LAB1');event.stopPropagation()"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none"/></svg>Go</div></div></div></div>
+    </div>
+  </div>
+
+  <!-- FRI -->
+  <div class="scroll sched-panel" id="day-fri" style="display:none;">
+    <div class="tl">
+      <div class="tli"><div class="tl-t">7:00</div><div class="tl-line"><div class="tl-dot"></div></div><div class="tlc" onclick="openRoom('LAB1')"><h4>Information Management</h4><p>Lee Roy Fabregas · 3h</p><div class="tlc-foot"><div class="rt">Lab 1</div><div class="nb d" onclick="startNav('LAB1');event.stopPropagation()"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none"/></svg>Go</div></div></div></div>
+      <div class="tli"><div class="tl-t">1:00</div><div class="tl-line"><div class="tl-dot"></div></div><div class="tlc" onclick="openRoom('LAB1')"><h4>Systems Integration & Architecture</h4><p>Lloyd Lomoljo · 3h</p><div class="tlc-foot"><div class="rt">Lab 1</div><div class="nb d" onclick="startNav('LAB1');event.stopPropagation()"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none"/></svg>Go</div></div></div></div>
+      <div class="tli"><div class="tl-t">4:00</div><div class="tl-line"><div class="tl-dot"></div></div><div class="tlc" onclick="openRoom('LAB1')"><h4>Network Technology 1</h4><p>Lloyd Lomoljo · 3h</p><div class="tlc-foot"><div class="rt">Lab 1</div><div class="nb d" onclick="startNav('LAB1');event.stopPropagation()"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none"/></svg>Go</div></div></div></div>
+    </div>
+  </div>
+
+  <!-- SAT -->
+  <div class="scroll sched-panel" id="day-sat" style="display:none;">
+    <div class="tl">
+      <div class="tli"><div class="tl-t">7:00</div><div class="tl-line"><div class="tl-dot"></div></div><div class="tlc"><h4>P.E./PATHFIT 4: Team Sports</h4><p>Karen Torrefiel · 2h</p><div class="tlc-foot"><div class="rt">TBA</div></div></div></div>
+      <div class="tli"><div class="tl-t">10:00</div><div class="tl-line"><div class="tl-dot"></div></div><div class="tlc"><h4>Integrative Programming</h4><p>Nathalie Shane Abia · 3h</p><div class="tlc-foot"><div class="rt">TBA</div></div></div></div>
+    </div>
+  </div>
+
+  <div class="bnav">
+    <div class="ni" onclick="tabTo('s-schedule','s-dashboard')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><span>Home</span></div>
+    <div class="ni" onclick="tabTo('s-schedule','s-search')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>Search</span></div>
+    <div class="ni on" onclick="tabTo('s-schedule','s-schedule')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Schedule</span></div>
+    <div class="ni" onclick="tabTo('s-schedule','s-profile')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 6: SEARCH
+═══════════════════════════════ -->
+<div class="screen tab-enter" id="s-search">
+  <div style="padding:0 20px 6px;flex-shrink:0;">
+    <div style="font-size:26px;font-weight:600;color:var(--black);letter-spacing:-0.04em;line-height:1.1;margin-bottom:12px;">Find a room<br>or facility.</div>
+  </div>
+  <div class="srch-bar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" placeholder="Room name, number, or type…"></div>
+  <div class="chips">
+    <div class="chip" onclick="filterChip(this)">All</div>
+    <div class="chip off" onclick="filterChip(this)">Classrooms</div>
+    <div class="chip off" onclick="filterChip(this)">Offices</div>
+    <div class="chip off" onclick="filterChip(this)">Labs</div>
+    <div class="chip off" onclick="filterChip(this)">ComRooms</div>
+  </div>
+  <div class="slbl">Recent</div>
+  <div class="scroll">
+    <div class="rlist">
+      <div class="ri" onclick="openRoom('RM302')"><div class="rnum ft">302</div><div class="rinfo"><h4>Room 302 — ICT Lab</h4><p>Building A · 3rd Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ri" onclick="openRoom('REG')"><div class="rnum">REG</div><div class="rinfo"><h4>Registrar's Office</h4><p>Building B · Ground Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+    </div>
+    <div class="slbl">All Rooms</div>
+    <div class="rlist">
+      <div class="ri" onclick="openRoom('RM101')"><div class="rnum">101</div><div class="rinfo"><h4>Room 101 — Lecture Hall</h4><p>Building A · 1st Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ri" onclick="openRoom('RM102')"><div class="rnum">102</div><div class="rinfo"><h4>Room 102 — Lecture Hall</h4><p>Building A · 1st Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ri" onclick="openRoom('RM201')"><div class="rnum">201</div><div class="rinfo"><h4>Room 201 — Science Lab</h4><p>Building A · 2nd Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ri" onclick="openRoom('RM203')"><div class="rnum">203</div><div class="rinfo"><h4>Room 203</h4><p>Building A · 2nd Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ri" onclick="openRoom('RM301')"><div class="rnum">301</div><div class="rinfo"><h4>Room 301</h4><p>Building A · 3rd Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ri" onclick="openRoom('LAB1')"><div class="rnum">CL1</div><div class="rinfo"><h4>ComLab 1</h4><p>Building A · 2nd Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ri" onclick="openRoom('LIB')"><div class="rnum">LIB</div><div class="rinfo"><h4>Library</h4><p>Building B · 1st Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+    </div>
+    <div style="height:12px;"></div>
+  </div>
+  <div class="bnav">
+    <div class="ni" onclick="tabTo('s-search','s-dashboard')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><span>Home</span></div>
+    <div class="ni on" onclick="tabTo('s-search','s-search')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>Search</span></div>
+    <div class="ni" onclick="tabTo('s-search','s-schedule')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Schedule</span></div>
+    <div class="ni" onclick="tabTo('s-search','s-profile')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 7: MAP
+═══════════════════════════════ -->
+<div class="screen tab-enter" id="s-map">
+  <div class="map-wrap">
+    <div class="map-bg">
+      <div class="rh" style="top:22%;"></div><div class="rh" style="top:44%;"></div><div class="rh" style="top:64%;"></div>
+      <div class="rv" style="left:22%;"></div><div class="rv" style="left:52%;"></div><div class="rv" style="right:18%;"></div>
+      <div class="bld" style="left:4%;top:7%;width:16%;height:13%;"></div>
+      <div class="bld sel" style="left:28%;top:7%;width:20%;height:13%;"><span class="bld-lbl">BLDG A</span></div>
+      <div class="bld" style="left:58%;top:7%;width:22%;height:13%;"></div>
+      <div class="bld" style="left:4%;top:27%;width:16%;height:13%;"></div>
+      <div class="bld" style="left:28%;top:27%;width:20%;height:13%;"></div>
+      <div class="bld" style="left:58%;top:27%;width:22%;height:13%;"></div>
+      <div class="bld" style="left:4%;top:49%;width:16%;height:12%;"></div>
+      <div class="bld" style="left:28%;top:49%;width:20%;height:12%;"></div>
+      <div class="bld" style="left:58%;top:49%;width:22%;height:12%;"></div>
+      <svg class="route-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M 34 68 L 34 35 L 52 35 L 52 14" stroke="#1a1a1a" stroke-width="0.8" fill="none" stroke-dasharray="2.5 1.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <div class="you-pin" style="left:30%;top:66%;transform:translate(-50%,-50%);"></div>
+      <div class="dp-head" style="left:calc(52% - 12px);top:calc(7% + 6px);"></div>
+    </div>
+    <div class="map-srch-bar" style="display:flex;align-items:center;gap:8px;">
+      <div onclick="tabTo('s-map','s-dashboard')" style="background:var(--white);border-radius:var(--r-lg);width:42px;height:42px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(0,0,0,0.1);cursor:pointer;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.5"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
+      </div>
+      <div class="msb-inner" style="flex:1;" onclick="tabTo('s-map','s-search')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span>Room 302 — 2nd Floor</span>
+        <div class="fbadge">F2</div>
+      </div>
+    </div>
+    <div class="floor-sw">
+      <div class="fb on" onclick="switchFloor(this)">2F</div>
+      <div class="fb" onclick="switchFloor(this)">1F</div>
+      <div class="fb" onclick="switchFloor(this)">GF</div>
+    </div>
+  </div>
+  <div class="bsheet">
+    <div class="dh"></div>
+    <div class="di-row">
+      <div class="di-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+      <div class="di-txt"><h3>Room 302</h3><p>Building A · 3rd Floor · ICT Lab</p></div>
+    </div>
+    <div class="meta-r">
+      <div class="mc"><div class="v">2m</div><div class="l">Walk</div></div>
+      <div class="mc"><div class="v">2F</div><div class="l">Floor</div></div>
+      <div class="mc"><div class="v">~45m</div><div class="l">Away</div></div>
+    </div>
+    <button class="btn-blk" onclick="beginNavigation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>Start Navigation</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 8: ACTIVE NAVIGATION
+═══════════════════════════════ -->
+<div class="screen" id="s-navigate" style="background:var(--g100);">
+  <div class="nav-head">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div class="nh-live">LIVE</div>
+    </div>
+    <div class="nh-step">Next step</div>
+    <div class="nh-inst">Turn right at the<br>main stairwell</div>
+    <div class="nh-sub">Head toward Building A · 2nd Floor</div>
+    <div class="prog-t"><div class="prog-f"></div></div>
+  </div>
+  <div class="mini-map">
+    <div class="mr" style="top:43%;"></div><div class="mr" style="top:77%;"></div>
+    <div class="mv" style="left:16%;"></div><div class="mv" style="left:43%;"></div><div class="mv" style="right:14%;"></div>
+    <div class="mb" style="left:3%;top:8%;width:11%;height:28%;"></div>
+    <div class="mb dk" style="left:24%;top:8%;width:16%;height:28%;"></div>
+    <div class="mb" style="left:50%;top:8%;width:16%;height:28%;"></div>
+    <div class="mb" style="left:3%;top:54%;width:11%;height:19%;"></div>
+    <div class="mb" style="left:24%;top:54%;width:16%;height:19%;"></div>
+    <div class="mb" style="left:50%;top:54%;width:16%;height:19%;"></div>
+    <svg style="position:absolute;inset:0;" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M 40 85 L 40 52 L 58 52 L 58 22" stroke="#1a1a1a" stroke-width="1" fill="none" stroke-dasharray="3 2" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+      <circle cx="40" cy="85" r="3" fill="white" stroke="#1a1a1a" stroke-width="1"/>
+      <circle cx="40" cy="85" r="1.2" fill="#1a1a1a"/>
+      <circle cx="58" cy="18" r="4" fill="#1a1a1a"/>
+      <circle cx="58" cy="18" r="1.8" fill="white"/>
+    </svg>
+  </div>
+  <div class="scroll">
+    <div class="steps">
+      <div class="sti"><div class="sd done"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div class="st-txt"><h4>Exit the main lobby</h4><p>Ground Floor · Building B</p></div></div>
+      <div class="sti"><div class="sd cur"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg></div><div class="st-txt"><h4>Turn right at stairwell</h4><p>Follow hallway · ~15m</p></div></div>
+      <div class="sti"><div class="sd"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div><div class="st-txt"><h4>Go up to 2nd Floor</h4><p>Use stairwell or elevator</p></div></div>
+      <div class="sti"><div class="sd"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div class="st-txt"><h4>Arrive at Room 302</h4><p>ICT Lab · 2nd Floor</p></div></div>
+    </div>
+    <div class="end-nav" onclick="tabTo('s-navigate','s-dashboard')">End Navigation</div>
+    <div style="height:16px;"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 9: SUBSCRIPTION
+═══════════════════════════════ -->
+<div class="screen" id="s-subscription">
+  <div style="padding:6px 20px 14px;flex-shrink:0;">
+    <div class="back" onclick="goBack()" style="margin-bottom:12px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>Back
+    </div>
+    <div style="font-size:24px;font-weight:600;color:var(--black);letter-spacing:-0.04em;margin-bottom:2px;">Upgrade</div>
+    <div style="font-size:13px;color:var(--g400);">Unlock full student features</div>
+  </div>
+  <div class="scroll">
+    <div class="sub-hero">
+      <div class="sh-eye">Wayfinder Student</div>
+      <div class="sh-ttl">Navigation +<br>Schedule Access</div>
+      <div class="sh-sub">Room-by-room directions tied directly to your class schedule.</div>
+      <div class="sh-price"><div class="sh-p" id="sh-price-val">₱49</div><div class="sh-per" id="sh-price-per">/ month</div></div>
+    </div>
+    <div style="padding:0 20px 8px;font-size:14px;font-weight:600;color:var(--black);letter-spacing:-0.02em;">Choose a Plan</div>
+    <div class="plan-cards">
+      <div class="pc sel" onclick="selectPlan(this)">
+        <div class="pc-radio"></div>
+        <div class="pc-top"><div class="pc-name">Monthly</div><div class="pc-badge">Popular</div></div>
+        <div class="pc-desc">Billed every month. Cancel anytime.</div>
+        <div class="pc-pr"><div class="pc-price">₱49</div><div class="pc-per">/ month</div></div>
+      </div>
+      <div class="pc" onclick="selectPlan(this)">
+        <div class="pc-radio"></div>
+        <div class="pc-top"><div class="pc-name">Per Semester</div><div class="pc-badge out">Save 27%</div></div>
+        <div class="pc-desc">Billed once per semester (5 months).</div>
+        <div class="pc-pr"><div class="pc-price">₱149</div><div class="pc-per">/ semester</div></div>
+      </div>
+    </div>
+    <div style="padding:0 20px 8px;font-size:14px;font-weight:600;color:var(--black);letter-spacing:-0.02em;">What's Included</div>
+    <div class="feat-list">
+      <div class="fi"><div class="fck y"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Campus map & room navigation</span></div>
+      <div class="fi"><div class="fck y"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Schedule-linked navigation</span></div>
+      <div class="fi"><div class="fck y"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Weekly timetable view</span></div>
+      <div class="fi"><div class="fck y"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Class room assignments</span></div>
+      <div class="fi"><div class="fck"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><span class="m">Offline mode (coming soon)</span></div>
+    </div>
+    <div style="height:8px;"></div>
+  </div>
+  <div class="sub-footer">
+    <button class="btn-blk" style="gap:7px;" onclick="subscribePlan()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span id="sub-btn-label">Subscribe — ₱49 / month</span></button>
+    <div class="restore">Already subscribed? <a href="#" onclick="restorePurchase();return false;">Restore purchase</a></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 10: STUDENT PROFILE
+═══════════════════════════════ -->
+<div class="screen tab-enter" id="s-profile" style="background:var(--g100);">
+  <div class="prof-hero">
+    <div class="av">LO</div>
+    <div class="pname">Loiu</div>
+    <div class="pemail">loiu.2024@sti.edu.ph</div>
+    <div class="pbadge"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Student · Subscribed</div>
+  </div>
+  <div class="scroll">
+    <div class="stats-row">
+      <div class="stat"><span class="sv">12</span><span class="sl">Visited</span></div>
+      <div class="stat"><span class="sv">8</span><span class="sl">Subjects</span></div>
+      <div class="stat"><span class="sv">8d</span><span class="sl">Streak</span></div>
+    </div>
+    <div class="sg" style="margin-top:14px;">
+      <div class="sgl">Account</div>
+      <div class="sgc">
+        <div class="srow"><div class="sico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div style="flex:1;"><h4>Edit Profile</h4></div><svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+        <div class="srow" onclick="go('s-subscription')"><div class="sico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><div style="flex:1;"><h4>Subscription</h4><p>Monthly · Renews Mar 28</p></div><div class="tag-y">Active</div></div>
+        <div class="srow"><div class="sico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div style="flex:1;"><h4>Campus</h4><p>STI Puerto Princesa</p></div><svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      </div>
+    </div>
+    <div class="sg">
+      <div class="sgl">Preferences</div>
+      <div class="sgc">
+        <div class="srow"><div class="sico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg></div><div style="flex:1;"><h4>Notifications</h4></div><div class="tag-y">On</div></div>
+        <div class="srow"><div class="sico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div style="flex:1;"><h4>Default Floor</h4><p>Ground Floor</p></div><svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      </div>
+    </div>
+    <div class="signout" onclick="go('s-splash')">Sign Out</div>
+    <div style="height:14px;"></div>
+  </div>
+  <div class="bnav" style="background:var(--g100);border-top-color:var(--g200);">
+    <div class="ni" onclick="tabTo('s-profile','s-dashboard')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><span>Home</span></div>
+    <div class="ni" onclick="tabTo('s-profile','s-search')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>Search</span></div>
+    <div class="ni" onclick="tabTo('s-profile','s-schedule')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Schedule</span></div>
+    <div class="ni on" onclick="tabTo('s-profile','s-profile')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 11: GUEST HOME
+═══════════════════════════════ -->
+<div class="screen tab-enter" id="s-guest-home">
+  <div class="scroll">
+    <div style="padding:2px 20px 14px;display:flex;justify-content:space-between;align-items:center;">
+      <div><p style="font-size:12px;color:var(--g400);margin-bottom:3px;">Welcome to</p><h2 style="font-size:20px;font-weight:600;color:var(--black);letter-spacing:-0.03em;">STI Puerto Princesa</h2></div>
+      <div style="background:var(--g100);border-radius:18px;padding:5px 10px;font-family:'DM Mono',monospace;font-size:9px;font-weight:500;color:var(--g600);letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:5px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Parent</div>
+    </div>
+    <div class="gsrch" onclick="go('s-guest-search')">
+      <div class="gsrch-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+      <div class="gsrch-t"><h3>Find any room</h3><p>Search by name, number, or type</p></div>
+      <div class="gsrch-arr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg></div>
+    </div>
+    <div class="gbanner">
+      <div class="gbanner-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <p>Are you a student? <strong>Sign in</strong> for schedule & navigation.</p>
+      <a onclick="go('s-splash')">Sign In</a>
+    </div>
+    <div class="sh"><h3>Quick Access</h3></div>
+    <div class="qgrid">
+      <div class="qcard" onclick="tabTo('s-guest-home','s-guest-map')"><div class="qcard-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><h4>Campus Map</h4><p>All buildings & floors</p></div></div>
+      <div class="qcard" onclick="go('s-guest-search')"><div class="qcard-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><div><h4>Find a Room</h4><p>Search any location</p></div></div>
+      <div class="qcard" onclick="go('s-guest-search')"><div class="qcard-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3M17 14h3M14 17h3v3"/></svg></div><div><h4>Scan QR</h4><p>Locate yourself</p></div></div>
+      <div class="qcard" onclick="openRoom('REG')"><div class="qcard-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div><h4>Office Hours</h4><p>Admin & registrar</p></div></div>
+    </div>
+    <div class="sh" style="margin-top:6px;"><h3>Common Places</h3><span>See all</span></div>
+    <div class="plist">
+      <div class="pli" onclick="openRoom('REG')"><div class="pli-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="pli-inf"><h4>Registrar's Office</h4><p>Building B · Ground Floor</p></div><div class="pli-nav" onclick="beginNavigation('REG');event.stopPropagation()"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="white" stroke="none"/></svg>Go</div></div>
+      <div class="pli" onclick="openRoom('LIB')"><div class="pli-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div><div class="pli-inf"><h4>Library</h4><p>Building B · 1st Floor</p></div><div class="pli-nav" onclick="beginNavigation('LIB');event.stopPropagation()"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="white" stroke="none"/></svg>Go</div></div>
+      <div class="pli" onclick="openRoom('GDN')"><div class="pli-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.4 1.13 2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div class="pli-inf"><h4>Guidance Office</h4><p>Building A · 1st Floor</p></div><div class="pli-nav" onclick="beginNavigation('GDN');event.stopPropagation()"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="white" stroke="none"/></svg>Go</div></div>
+      <div class="pli" onclick="openRoom('PNC')"><div class="pli-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div class="pli-inf"><h4>Principal's Office</h4><p>Building A · Ground Floor</p></div><div class="pli-nav" onclick="beginNavigation('PNC');event.stopPropagation()"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="white" stroke="none"/></svg>Go</div></div>
+    </div>
+    <div style="height:16px;"></div>
+  </div>
+  <div class="bnav">
+    <div class="ni on" onclick="tabTo('s-guest-home','s-guest-home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><span>Home</span></div>
+    <div class="ni" onclick="go('s-guest-search')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>Search</span></div>
+    <div class="ni" onclick="tabTo('s-guest-home','s-guest-map')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg><span>Map</span></div>
+    <div class="ni" onclick="tabTo('s-guest-home','s-guest-profile')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 12a: GUEST SEARCH
+═══════════════════════════════ -->
+<div class="screen tab-enter" id="s-guest-search">
+  <div style="padding:0 20px 6px;flex-shrink:0;">
+    <div style="font-size:26px;font-weight:600;color:var(--black);letter-spacing:-0.04em;line-height:1.1;margin-bottom:12px;">Find a room<br>or facility.</div>
+  </div>
+  <div class="srch-bar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" placeholder="Room name, number, or type…"></div>
+  <div class="chips">
+    <div class="chip" onclick="filterChip(this)">All</div>
+    <div class="chip off" onclick="filterChip(this)">Offices</div>
+    <div class="chip off" onclick="filterChip(this)">Classrooms</div>
+    <div class="chip off" onclick="filterChip(this)">Labs</div>
+  </div>
+  <div class="slbl">Popular Places</div>
+  <div class="scroll">
+    <div class="rlist">
+      <div class="ri" onclick="openRoom('REG')"><div class="rnum ft">REG</div><div class="rinfo"><h4>Registrar's Office</h4><p>Building B · Ground Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ri" onclick="openRoom('LIB')"><div class="rnum">LIB</div><div class="rinfo"><h4>Library</h4><p>Building B · 1st Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ri" onclick="openRoom('GDN')"><div class="rnum">GDN</div><div class="rinfo"><h4>Guidance Office</h4><p>Building A · 1st Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ri" onclick="openRoom('PNC')"><div class="rnum">PNC</div><div class="rinfo"><h4>Principal's Office</h4><p>Building A · Ground Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+      <div class="ri" onclick="openRoom('CSH')"><div class="rnum">CSH</div><div class="rinfo"><h4>Cashier's Office</h4><p>Building B · Ground Floor</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+    </div>
+    <div style="height:12px;"></div>
+  </div>
+  <div class="bnav">
+    <div class="ni" onclick="tabTo('s-guest-search','s-guest-home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><span>Home</span></div>
+    <div class="ni on" onclick="tabTo('s-guest-search','s-guest-search')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>Search</span></div>
+    <div class="ni" onclick="tabTo('s-guest-search','s-guest-map')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg><span>Map</span></div>
+    <div class="ni" onclick="tabTo('s-guest-search','s-guest-profile')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 12b: GUEST MAP
+═══════════════════════════════ -->
+<div class="screen tab-enter" id="s-guest-map">
+  <div class="map-wrap">
+    <div class="map-bg">
+      <div class="rh" style="top:22%;"></div><div class="rh" style="top:44%;"></div><div class="rh" style="top:64%;"></div>
+      <div class="rv" style="left:22%;"></div><div class="rv" style="left:52%;"></div><div class="rv" style="right:18%;"></div>
+      <div class="bld sel" style="left:4%;top:7%;width:16%;height:13%;"><span class="bld-lbl">REG</span></div>
+      <div class="bld" style="left:28%;top:7%;width:20%;height:13%;"></div>
+      <div class="bld" style="left:58%;top:7%;width:22%;height:13%;"></div>
+      <div class="bld" style="left:4%;top:27%;width:16%;height:13%;"></div>
+      <div class="bld" style="left:28%;top:27%;width:20%;height:13%;"></div>
+      <div class="bld" style="left:58%;top:27%;width:22%;height:13%;"></div>
+      <div class="bld" style="left:4%;top:49%;width:16%;height:12%;"></div>
+      <div class="bld" style="left:28%;top:49%;width:20%;height:12%;"></div>
+      <div class="bld" style="left:58%;top:49%;width:22%;height:12%;"></div>
+      <svg class="route-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M 52 68 L 52 35 L 22 35 L 22 14" stroke="#1a1a1a" stroke-width="0.8" fill="none" stroke-dasharray="2.5 1.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <div class="you-pin" style="left:49%;top:66%;transform:translate(-50%,-50%);"></div>
+      <div class="dp-head" style="left:calc(4% + 4px);top:calc(7% + 6px);"></div>
+    </div>
+    <div class="map-srch-bar">
+      <div class="msb-inner" onclick="go('s-guest-search')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span>Registrar's Office</span>
+        <div class="fbadge">GF</div>
+      </div>
+    </div>
+    <div class="floor-sw">
+      <div class="fb" onclick="switchFloor(this)">2F</div>
+      <div class="fb" onclick="switchFloor(this)">1F</div>
+      <div class="fb on" onclick="switchFloor(this)">GF</div>
+    </div>
+  </div>
+  <div class="bsheet">
+    <div class="dh"></div>
+    <div class="di-row">
+      <div class="di-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <div class="di-txt"><h3>Registrar's Office</h3><p>Building B · Ground Floor</p></div>
+    </div>
+    <div class="meta-r">
+      <div class="mc"><div class="v">3m</div><div class="l">Walk</div></div>
+      <div class="mc"><div class="v">GF</div><div class="l">Floor</div></div>
+      <div class="mc"><div class="v">~60m</div><div class="l">Away</div></div>
+    </div>
+    <button class="btn-blk" onclick="beginNavigation('REG')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>Start Navigation</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 13: ROOM DETAIL
+═══════════════════════════════ -->
+<div class="screen" id="s-room-detail">
+  <div style="padding:8px 20px 0;flex-shrink:0;">
+    <div class="back" onclick="goBack()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
+      Back to Search
+    </div>
+  </div>
+  <div class="scroll">
+    <div class="rd-hero">
+      <div class="rd-eye">Building B · Ground Floor</div>
+      <div class="rd-name">Registrar's<br>Office</div>
+      <div class="rd-sub">Administrative Services</div>
+      <div class="rd-tags">
+        <div class="rdtag">8AM—5PM</div>
+        <div class="rdtag">Mon—Fri</div>
+        <div class="rdtag">Bldg B</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="ir"><div class="ir-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><h4>Building</h4><span>Building B</span></div>
+      <div class="ir"><div class="ir-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div><h4>Floor</h4><span>Ground Floor</span></div>
+      <div class="ir"><div class="ir-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><h4>Office Hours</h4><span>8:00 AM — 5:00 PM</span></div>
+      <div class="ir"><div class="ir-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h4>Open Days</h4><span>Mon — Fri</span></div>
+    </div>
+    <div style="padding:4px 20px 8px;font-size:14px;font-weight:600;color:var(--black);letter-spacing:-0.02em;">Nearby Rooms</div>
+    <div class="nlist">
+      <div class="nli" onclick="openRoom('CSH')"><div class="nnum">GF-01</div><div class="ninf"><h4>Cashier's Office</h4><p>Ground Floor · Building B</p></div><div class="ndist">~5m</div></div>
+      <div class="nli" onclick="openRoom('PNC')"><div class="nnum">GF-02</div><div class="ninf"><h4>Principal's Office</h4><p>Ground Floor · Building A</p></div><div class="ndist">~8m</div></div>
+      <div class="nli" onclick="openRoom('GDN')"><div class="nnum">GF-03</div><div class="ninf"><h4>Guidance Office</h4><p>1st Floor · Building A</p></div><div class="ndist">~20m</div></div>
+    </div>
+    <div style="height:14px;"></div>
+  </div>
+  <div style="padding:10px 20px calc(var(--safe-bottom)+24px);flex-shrink:0;">
+    <button class="btn-blk" onclick="startNav(activeRoom)" style="gap:7px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="white" stroke="none"/></svg>Navigate Here</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCREEN 14: GUEST PROFILE
+═══════════════════════════════ -->
+<div class="screen tab-enter" id="s-guest-profile" style="background:var(--g100);">
+  <div class="gp-hero">
+    <div class="gav"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+    <div class="gp-type">Parent / Guardian</div>
+    <div class="gp-sub">Guest · No account</div>
+    <div class="gp-badge">Guest Access</div>
+  </div>
+  <div class="scroll">
+    <div class="up-card">
+      <div class="uci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <div class="uct"><h4>Student Account</h4><p>Get schedule-linked navigation and full access.</p></div>
+      <div class="ucb" onclick="go('s-splash')">Sign In</div>
+    </div>
+    <div class="acc-sec">
+      <div class="acc-lbl">Your Access</div>
+      <div class="acc-card">
+        <div class="ar"><div class="ar-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><h4>Campus Map</h4><div class="tgy">Yes</div></div>
+        <div class="ar"><div class="ar-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h4>Room Search</h4><div class="tgy">Yes</div></div>
+        <div class="ar"><div class="ar-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div><h4>Navigation</h4><div class="tgy">Yes</div></div>
+        <div class="ar"><div class="ar-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h4 class="dim">Class Schedule</h4><div class="tgn">No</div></div>
+        <div class="ar"><div class="ar-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg></div><h4 class="dim">Notifications</h4><div class="tgn">No</div></div>
+      </div>
+    </div>
+    <div class="acc-sec">
+      <div class="acc-lbl">Visitor Info</div>
+      <div class="acc-card">
+        <div class="ar"><div class="ar-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div style="flex:1;"><h4>Visitor Type</h4><p style="font-size:11px;color:var(--g400);margin-top:1px;">Parent / Guardian</p></div><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+        <div class="ar"><div class="ar-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div style="flex:1;"><h4>Campus</h4><p style="font-size:11px;color:var(--g400);margin-top:1px;">STI Puerto Princesa</p></div></div>
+      </div>
+    </div>
+    <div class="chg-btn" onclick="go('s-guest-login')">Change Visitor Type</div>
+    <div style="height:14px;"></div>
+  </div>
+  <div class="bnav" style="background:var(--g100);border-top-color:var(--g200);">
+    <div class="ni" onclick="tabTo('s-guest-profile','s-guest-home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><span>Home</span></div>
+    <div class="ni" onclick="tabTo('s-guest-profile','s-guest-search')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>Search</span></div>
+    <div class="ni" onclick="tabTo('s-guest-profile','s-guest-map')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg><span>Map</span></div>
+    <div class="ni on" onclick="tabTo('s-guest-profile','s-guest-profile')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></div>
+  </div>
+</div>
+
+</div><!-- end #app -->
+
+<script src="app.js"></script>
+<div class="toast" id="toast"></div>
+</body>
+</html>

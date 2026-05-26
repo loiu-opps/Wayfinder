@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "PowerShell(\\(Get-Content \"d:\\\\Project\\\\WAYFINDER\\\\app.js\" -Encoding UTF8\\) -replace [char]0x20B1, '₱' | Set-Content \"d:\\\\Project\\\\WAYFINDER\\\\app.js\" -Encoding UTF8)",
+      "PowerShell(Get-ChildItem \"$env:APPDATA\\\\Code\\\\Backups\" -Recurse | Measure-Object)",
+      "PowerShell(vssadmin list shadows 2>&1)"
+    ]
+  }
+}

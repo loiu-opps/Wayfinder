@@ -1,0 +1,22 @@
+{
+  "name": "STI Wayfinder",
+  "short_name": "Wayfinder",
+  "description": "Campus navigation for STI College Puerto Princesa",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='42' fill='%230a0a0a'/><path d='M96 36C73.9 36 56 53.9 56 76c0 31.5 40 80 40 80s40-48.5 40-80c0-22.1-17.9-40-40-40z' fill='white'/><circle cx='96' cy='76' r='14' fill='%230a0a0a'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%230a0a0a'/><path d='M256 96C211.8 96 176 131.8 176 176c0 61 80 160 80 160s80-99 80-160c0-44.2-35.8-80-80-80z' fill='white'/><circle cx='256' cy='176' r='36' fill='%230a0a0a'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
